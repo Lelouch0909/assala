@@ -1,0 +1,459 @@
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Dancing+Script:wght@400;700&family=Great+Vibes&display=swap');
+
+.birthday-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+/* Common Scene Styles */
+.scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Intro Scene */
+.scene-intro {
+  background: linear-gradient(135deg, #1a0033 0%, #330066 50%, #4d0099 100%);
+  position: relative;
+}
+
+.stars-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+.intro-title {
+  font-family: 'Parisienne', cursive;
+  font-size: clamp(3rem, 10vw, 5rem);
+  color: #fff;
+  text-shadow:
+    0 0 20px rgba(255, 105, 180, 0.8),
+    0 0 40px rgba(255, 20, 147, 0.6),
+    0 0 60px rgba(255, 0, 127, 0.4);
+  animation: glowPulse 2s ease-in-out infinite, scaleIn 1s ease-out;
+  z-index: 10;
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 20px rgba(255, 105, 180, 0.8),
+      0 0 40px rgba(255, 20, 147, 0.6),
+      0 0 60px rgba(255, 0, 127, 0.4);
+  }
+  50% {
+    text-shadow:
+      0 0 30px rgba(255, 105, 180, 1),
+      0 0 60px rgba(255, 20, 147, 0.8),
+      0 0 90px rgba(255, 0, 127, 0.6);
+  }
+}
+
+.sparkles {
+  position: absolute;
+  bottom: 30%;
+  font-size: clamp(2rem, 6vw, 3rem);
+  animation: sparkleFloat 3s ease-in-out infinite;
+}
+
+@keyframes sparkleFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.2);
+  }
+}
+
+/* Message Scenes */
+.scene-message {
+  background: linear-gradient(135deg, #ffeef8 0%, #ffc3e1 50%, #ff9ec7 100%);
+}
+
+.message-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  padding: 3rem 2rem;
+  box-shadow:
+    0 20px 60px rgba(216, 27, 96, 0.3),
+    0 0 100px rgba(255, 105, 180, 0.2);
+  max-width: 90%;
+  text-align: center;
+}
+
+.message-card.animate-in {
+  animation: slideInUp 1s ease-out;
+}
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  color: #d81b60;
+  margin-bottom: 2rem;
+  text-shadow: 0 4px 20px rgba(216, 27, 96, 0.3);
+  animation: fadeInScale 1s ease-out;
+}
+
+.message-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.3rem, 4vw, 2rem);
+  color: #880e4f;
+  margin: 1rem 0;
+  line-height: 1.6;
+  animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+.message-text.delay-1 {
+  animation-delay: 0.8s;
+}
+
+.emoji-line {
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin-top: 2rem;
+  animation: fadeInScale 1s ease-out 1.5s backwards;
+}
+
+/* Flowers Scenes */
+.scene-flowers {
+  position: relative;
+  background: linear-gradient(180deg, #1a0033 0%, #000 100%);
+}
+
+.flowers-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+}
+
+.overlay-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 100;
+}
+
+.floating-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: #fff;
+  text-shadow:
+    0 0 20px rgba(255, 105, 180, 0.8),
+    0 4px 30px rgba(0, 0, 0, 0.5);
+  margin: 1rem 0;
+  animation: floatInText 1.5s ease-out;
+}
+
+.floating-text.delay-1 {
+  animation-delay: 1s;
+  animation-name: floatInText;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+@keyframes floatInText {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hearts Scene */
+.scene-hearts {
+  background: #000;
+  position: relative;
+}
+
+.hearts-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Finale Scene */
+.scene-finale {
+  background: linear-gradient(135deg, #1a0033 0%, #330066 50%, #4d0099 100%);
+  position: relative;
+}
+
+.finale-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+}
+
+.finale-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 2rem 2rem 12rem 2rem;
+  animation: fadeInScale 2s ease-out;
+}
+
+.finale-title {
+  font-family: 'Parisienne', cursive;
+  font-size: clamp(3rem, 10vw, 5rem);
+  color: #fff;
+  text-shadow:
+    0 0 20px rgba(255, 105, 180, 0.8),
+    0 0 40px rgba(255, 20, 147, 0.6);
+  margin-bottom: 1rem;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+.finale-subtitle {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2rem, 7vw, 3.5rem);
+  color: #ff6eb4;
+  text-shadow: 0 0 20px rgba(255, 110, 180, 0.6);
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 1s ease-out 0.5s backwards;
+}
+
+.finale-date {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  color: #ffc3e1;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease-out 1s backwards;
+}
+
+.finale-hearts {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+}
+
+.pulse-heart {
+  display: inline-block;
+  animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+.pulse-heart.delay-1 {
+  animation-delay: 0.3s;
+}
+
+.pulse-heart.delay-2 {
+  animation-delay: 0.6s;
+}
+
+@keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.3);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+.finale-message {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+  margin-top: 2rem;
+  animation: fadeInUp 1s ease-out 1.5s backwards;
+}
+
+.finale-flowers {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.small-flower {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  animation: rotateFlower 10s linear infinite;
+}
+
+.flower-left {
+  top: 20%;
+  left: 5%;
+}
+
+.flower-right {
+  bottom: 20%;
+  right: 5%;
+  animation-direction: reverse;
+}
+
+@keyframes rotateFlower {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.mini-petal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 30px;
+  background: linear-gradient(135deg, #ff6eb4, #ff8fc7);
+  border-radius: 50% 50% 50% 0;
+  transform-origin: 0 100%;
+  margin-left: -10px;
+  margin-top: -15px;
+}
+
+/* Progress Indicator */
+.progress-indicator {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 1000;
+}
+
+.progress-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.progress-dot.active {
+  background: #ff6eb4;
+  box-shadow: 0 0 10px rgba(255, 110, 180, 0.8);
+  transform: scale(1.5);
+}
+
+.progress-dot.completed {
+  background: rgba(255, 110, 180, 0.6);
+}
+
+/* Mobile Optimizations - iPhone 11 */
+@media screen and (max-width: 428px) {
+  .message-card {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+
+  .finale-content {
+    padding: 1rem 1rem 14rem 1rem;
+  }
+
+  .progress-indicator {
+    bottom: 10rem;
+  }
+
+  .small-flower {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mini-petal {
+    width: 15px;
+    height: 20px;
+  }
+}
+
+/* Landscape mode adjustments */
+@media screen and (max-height: 500px) {
+  .message-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .finale-content {
+    padding: 1rem;
+  }
+
+  .progress-indicator {
+    bottom: 0.5rem;
+  }
+}
+

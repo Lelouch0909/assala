@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Dancing+Script:wght@400;700&display=swap');
+
+.countdown-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffeef8 0%, #ffc3e1 50%, #ff9ec7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background: linear-gradient(135deg, #ffeef8 0%, #ffc3e1 50%, #ff9ec7 100%);
+  }
+  50% {
+    background: linear-gradient(135deg, #ffe0f0 0%, #ffb3d9 50%, #ff8cb8 100%);
+  }
+}
+
+.countdown-content {
+  text-align: center;
+  z-index: 10;
+  padding: 2rem;
+  max-width: 100%;
+}
+
+/* Animated Flower */
+.countdown-flower {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 3rem;
+  animation: floatFlower 3s ease-in-out infinite;
+}
+
+@keyframes floatFlower {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+.petal {
+  position: absolute;
+  width: 50px;
+  height: 70px;
+  background: linear-gradient(135deg, #ff6eb4, #ff8fc7);
+  border-radius: 50% 50% 50% 0;
+  transform-origin: 0 100%;
+  animation: petalPulse 2s ease-in-out infinite;
+  box-shadow: 0 4px 15px rgba(255, 110, 180, 0.4);
+}
+
+@keyframes petalPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.petal-1 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation-delay: 0s;
+}
+
+.petal-2 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(60deg);
+  animation-delay: 0.2s;
+}
+
+.petal-3 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(120deg);
+  animation-delay: 0.4s;
+}
+
+.petal-4 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(180deg);
+  animation-delay: 0.6s;
+}
+
+.petal-5 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(240deg);
+  animation-delay: 0.8s;
+}
+
+.petal-6 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(300deg);
+  animation-delay: 1s;
+}
+
+.flower-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #ffeb3b, #ffd700);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  animation: glowPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.9);
+  }
+}
+
+/* Message */
+.countdown-message {
+  font-family: 'Parisienne', cursive;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  color: #d81b60;
+  text-shadow:
+    0 0 10px rgba(216, 27, 96, 0.3),
+    0 4px 20px rgba(255, 105, 180, 0.4);
+  margin-bottom: 3rem;
+  animation: fadeInScale 1.5s ease-out;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Countdown Timer */
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  animation: fadeInUp 1.5s ease-out 0.5s backwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.time-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(216, 27, 96, 0.2);
+  min-width: 70px;
+  transition: transform 0.3s ease;
+}
+
+.time-block:hover {
+  transform: translateY(-5px);
+}
+
+.time-value {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 700;
+  color: #d81b60;
+  line-height: 1;
+  text-shadow: 0 2px 10px rgba(216, 27, 96, 0.2);
+}
+
+.time-label {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: #ff6eb4;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.time-separator {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: #d81b60;
+  font-weight: 700;
+  animation: blink 1s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Floating Hearts */
+.floating-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -50px;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  animation: floatUp linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes floatUp {
+  0% {
+    bottom: -50px;
+    opacity: 0.7;
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(20px) rotate(180deg);
+  }
+  100% {
+    bottom: 110vh;
+    opacity: 0;
+    transform: translateX(-20px) rotate(360deg);
+  }
+}
+
+/* Mobile optimizations - iPhone 11 (414x896) */
+@media screen and (max-width: 428px) {
+  .countdown-content {
+    padding: 1rem;
+  }
+
+  .countdown-flower {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 2rem;
+  }
+
+  .petal {
+    width: 40px;
+    height: 60px;
+  }
+
+  .flower-center {
+    width: 25px;
+    height: 25px;
+  }
+
+  .countdown-message {
+    margin-bottom: 2rem;
+  }
+
+  .countdown-timer {
+    gap: 0.3rem;
+  }
+
+  .time-block {
+    padding: 0.8rem 1rem;
+    min-width: 60px;
+  }
+}
+

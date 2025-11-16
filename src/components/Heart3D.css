@@ -4,9 +4,10 @@
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 400px;
   overflow: hidden;
   background: linear-gradient(180deg, #1a0d1a 0%, #2b0f2b 100%);
+  color: #ffccff;
+  -webkit-font-smoothing: antialiased;
 }
 
 .heart3d-canvas {
@@ -18,17 +19,6 @@
   outline: none;
 }
 
-.heart3d-container::before {
-  content: '';
-  position: absolute;
-  border: 6px solid #ff99cc;
-  inset: 1rem;
-  z-index: 100;
-  pointer-events: none;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(255, 153, 204, 0.5);
-}
-
 .heart3d-title {
   position: absolute;
   top: 8vh;
@@ -37,7 +27,7 @@
   text-align: center;
   font-family: 'Parisienne', cursive;
   font-weight: 400;
-  font-size: max(3rem, 2vh);
+  font-size: max(2.5rem, 5vh);
   color: #ffccff;
   text-shadow: 0 0 10px rgba(255, 153, 204, 0.7);
   opacity: 0;

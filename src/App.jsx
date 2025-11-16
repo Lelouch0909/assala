@@ -1,40 +1,47 @@
-import Heart3D from './components/Heart3D'
-import HeartParticles from './components/HeartParticles'
-import FlowerAnimation from './components/FlowerAnimation'
+import { useState, useEffect } from 'react'
+import CountdownPage from './components/CountdownPage'
+import BirthdayPage from './components/BirthdayPage'
 import './App.css'
 
 function App() {
+  // MODE DEV: Mettre à true pour tester directement la page d'anniversaire
+  const DEV_MODE = true;
+
+  const [showBirthday, setShowBirthday] = useState(DEV_MODE);
+
+  useEffect(() => {
+    if (DEV_MODE) {
+      setShowBirthday(true);
+      return;
+    }
+
+    // Vérifier si la date cible est atteinte
+    const checkDate = () => {
+      const targetDate = new Date('2025-11-21T00:00:00').getTime();
+      const now = new Date().getTime();
+
+      if (now >= targetDate) {
+        setShowBirthday(true);
+      }
+    };
+
+    checkDate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleCountdownEnd = () => {
+    setShowBirthday(true);
+  };
+
   return (
     <div className="app">
-      <header className="app-header">
-        <h1 className="app-title">Joyeux Anniversaire Emeraude 💖</h1>
-        <p className="app-subtitle">Pour mon ange - 21 Novembre</p>
-      </header>
-
-      <div className="animations-container">
-        <div className="animation-card">
-          <h2 className="animation-title">Cœur 3D</h2>
-          <div className="animation-wrapper">
-            <Heart3D />
-          </div>
-        </div>
-
-        <div className="animation-card">
-          <h2 className="animation-title">Particules d'Amour</h2>
-          <div className="animation-wrapper">
-            <HeartParticles />
-          </div>
-        </div>
-
-        <div className="animation-card">
-          <h2 className="animation-title">Fleurs Magiques</h2>
-          <div className="animation-wrapper">
-            <FlowerAnimation />
-          </div>
-        </div>
-      </div>
+      {showBirthday ? (
+        <BirthdayPage />
+      ) : (
+        <CountdownPage onCountdownEnd={handleCountdownEnd} />
+      )}
     </div>
-  )
+  );
 }
 
 export default App
