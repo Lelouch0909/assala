@@ -1,6 +1,9 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import HeartParticles from './HeartParticles';
 import FlowerAnimation from './FlowerAnimation';
+import FireworksAnimation from './FireworksAnimation';
+import ConfettiAnimation from './ConfettiAnimation';
+import AngelAnimation from './AngelAnimation';
 import MenuButtons from './MenuButtons';
 import ContentPage from './ContentPage';
 import './BirthdayPage.css';
@@ -26,9 +29,10 @@ const BirthdayPage = () => {
     { id: 2, duration: 6000, component: 'flowers1' },
     { id: 3, duration: 5000, component: 'message2' },
     { id: 4, duration: 6000, component: 'hearts' },
-    { id: 5, duration: 5000, component: 'message3' },
-    { id: 6, duration: 8000, component: 'flowers2' },
-    { id: 7, duration: 0, component: 'finale' } // Infinite
+    { id: 5, duration: 6000, component: 'angel' }, // Nouvelle scène avec ange
+    { id: 6, duration: 5000, component: 'message3' },
+    { id: 7, duration: 8000, component: 'flowers2' },
+    { id: 8, duration: 0, component: 'finale' } // Infinite
   ], []);
 
   useEffect(() => {
@@ -112,6 +116,27 @@ const BirthdayPage = () => {
             <div className="hearts-overlay">
               <HeartParticles />
             </div>
+            <div className="fireworks-overlay">
+              <FireworksAnimation />
+            </div>
+            <div className="confetti-overlay">
+              <ConfettiAnimation />
+            </div>
+          </div>
+        );
+
+      case 'angel':
+        return (
+          <div className="scene scene-angel">
+            <div className="angel-overlay">
+              <AngelAnimation />
+            </div>
+            <div className="angel-message">
+              <h2 className="angel-message-title">Mon Ange</h2>
+              <p className="angel-message-text">Emeraude, tu es mon ange gardien</p>
+              <p className="angel-message-text delay-1">Celle qui veille sur mon cœur</p>
+              <div className="emoji-line">👼✨💫</div>
+            </div>
           </div>
         );
 
@@ -149,6 +174,9 @@ const BirthdayPage = () => {
           <div className="scene scene-finale">
             <div className="finale-background">
               <HeartParticles />
+            </div>
+            <div className="finale-confetti">
+              <ConfettiAnimation />
             </div>
             <div className="finale-content">
               <h1 className="finale-title">Joyeux Anniversaire</h1>

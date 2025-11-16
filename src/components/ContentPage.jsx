@@ -1,7 +1,12 @@
 import { useState, useMemo } from 'react';
+import LetterPage from './LetterPage';
 import './ContentPage.css';
 
 const ContentPage = ({ pageType, onBack }) => {
+  // Si c'est la page lettre, afficher le composant LetterPage
+  if (pageType === 'ma-lettre') {
+    return <LetterPage onBack={onBack} />;
+  }
   // Generate particle positions once
   const particles = useMemo(() => {
     return [...Array(20)].map(() => ({
@@ -14,9 +19,9 @@ const ContentPage = ({ pageType, onBack }) => {
 
   const [content] = useState(() => {
     switch(pageType) {
-      case 'qui-est-enis':
+      case 'qui-est-Eneis':
         return {
-          title: 'Qui est Enis',
+          title: 'Qui est Eneis',
           emoji: '✨',
           sections: [
             {
@@ -26,9 +31,9 @@ const ContentPage = ({ pageType, onBack }) => {
           ]
         };
 
-      case 'enis-a-travers-moi':
+      case 'Eneis-a-travers-moi':
         return {
-          title: 'Enis à travers moi',
+          title: 'Eneis à travers moi',
           emoji: '💖',
           sections: [
             {

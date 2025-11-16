@@ -243,6 +243,80 @@
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
+}
+
+.fireworks-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0.8;
+}
+
+.confetti-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  opacity: 0.9;
+}
+
+/* Angel Scene */
+.scene-angel {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+  position: relative;
+}
+
+.angel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.angel-message {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 10;
+  animation: fadeInUp 1s ease-out;
+}
+
+.angel-message-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  color: #1565c0;
+  text-shadow:
+    0 0 20px rgba(255, 255, 255, 0.8),
+    0 4px 30px rgba(33, 150, 243, 0.5);
+  margin-bottom: 1rem;
+}
+
+.angel-message-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.3rem, 4vw, 2rem);
+  color: #0d47a1;
+  margin: 0.5rem 0;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
+}
+
+.angel-message-text.delay-1 {
+  animation: fadeInUp 1s ease-out 0.5s backwards;
+}
+
+.angel-message .emoji-line {
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin-top: 1.5rem;
+  animation: fadeInScale 1s ease-out 1s backwards;
 }
 
 /* Finale Scene */
@@ -258,6 +332,17 @@
   width: 100%;
   height: 100%;
   opacity: 0.6;
+  z-index: 1;
+}
+
+.finale-confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0.7;
 }
 
 .finale-content {
