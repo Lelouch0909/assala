@@ -122,6 +122,9 @@ const QuiEstEneisPage = ({ onBack }) => {
     const elements = document.querySelectorAll('.content-item');
     elements.forEach((el) => observerRef.current.observe(el));
 
+    // Les guirlandes bougent naturellement avec les animations CSS
+    // Pas besoin d'interférer avec le scroll
+
     return () => {
       if (observerRef.current) {
         observerRef.current.disconnect();

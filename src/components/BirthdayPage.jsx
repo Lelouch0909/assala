@@ -26,13 +26,12 @@ const BirthdayPage = () => {
   const scenes = useMemo(() => [
     { id: 0, duration: 4000, component: 'intro' },
     { id: 1, duration: 5000, component: 'message1' },
-    { id: 2, duration: 6000, component: 'flowers1' },
+    { id: 2, duration: 4000, component: 'hearts' },
     { id: 3, duration: 5000, component: 'message2' },
-    { id: 4, duration: 6000, component: 'hearts' },
-    { id: 5, duration: 6000, component: 'angel' }, // Nouvelle scène avec ange
-    { id: 6, duration: 5000, component: 'message3' },
-    { id: 7, duration: 8000, component: 'flowers2' },
-    { id: 8, duration: 0, component: 'finale' } // Infinite
+      { id: 4, duration: 4000, component: 'angel' }, // Nouvelle scène avec ange
+    { id: 5, duration: 5000, component: 'message3' },
+    { id: 6, duration: 6000, component: 'flowers2' },
+    { id: 7, duration: 0, component: 'finale' } // Infinite
   ], []);
 
   useEffect(() => {
@@ -78,32 +77,24 @@ const BirthdayPage = () => {
                 Aujourd'hui est un jour spécial...
               </p>
               <p className="message-text delay-1">
-                Un jour où une étoile est née
+                tu as un an de plus!!
               </p>
               <div className="emoji-line">⭐💫✨</div>
             </div>
           </div>
         );
 
-      case 'flowers1':
-        return (
-          <div className="scene scene-flowers">
-            <div className="flowers-overlay">
-              <FlowerAnimation />
-            </div>
-          </div>
-        );
 
       case 'message2':
         return (
           <div className="scene scene-message">
             <div className="message-card animate-in">
-              <h2 className="message-title">Pour Toi</h2>
+              <h2 className="message-title">Bon anniversaire !</h2>
               <p className="message-text">
-                Chaque battement de mon cœur
+                  Garde ton cœur léger
               </p>
               <p className="message-text delay-1">
-                Résonne pour toi
+                  et ton sourire toujours
               </p>
               <div className="emoji-line">💕💗💖</div>
             </div>
@@ -133,8 +124,8 @@ const BirthdayPage = () => {
             </div>
             <div className="angel-message">
               <h2 className="angel-message-title">Mon Ange</h2>
-              <p className="angel-message-text">Emeraude, tu es mon ange gardien</p>
-              <p className="angel-message-text delay-1">Celle qui veille sur mon cœur</p>
+              <p className="angel-message-text">18 ans aujourd’hui et plusieurs autres à t’aimer</p>
+              <p className="angel-message-text delay-1">Bon anniversaire</p>
               <div className="emoji-line">👼✨💫</div>
             </div>
           </div>
@@ -146,10 +137,10 @@ const BirthdayPage = () => {
             <div className="message-card animate-in">
               <h2 className="message-title">Tu es Unique</h2>
               <p className="message-text">
-                Ton sourire illumine mes journées
+                  Ta présence est apaisante
               </p>
               <p className="message-text delay-1">
-                Ta présence est mon plus beau cadeau
+
               </p>
               <div className="emoji-line">🌟💝🌹</div>
             </div>
@@ -163,7 +154,7 @@ const BirthdayPage = () => {
               <FlowerAnimation />
             </div>
             <div className="overlay-message">
-              <p className="floating-text">Comme ces fleurs...</p>
+              <p className="floating-text"></p>
               <p className="floating-text delay-1">Tu embellis ma vie</p>
             </div>
           </div>
@@ -180,7 +171,7 @@ const BirthdayPage = () => {
             </div>
             <div className="finale-content">
               <h1 className="finale-title">Joyeux Anniversaire</h1>
-              <h2 className="finale-subtitle">Mon Ange Emeraude</h2>
+              <h2 className="finale-subtitle">Emeraude</h2>
               <p className="finale-date">21 Novembre 2025</p>
               <div className="finale-hearts">
                 <span className="pulse-heart">💖</span>

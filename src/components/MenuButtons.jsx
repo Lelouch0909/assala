@@ -23,10 +23,10 @@ const MenuButtons = ({ onNavigate }) => {
       <div className="menu-column menu-column-right">
         <button
           className="menu-btn menu-btn-3"
-          onClick={() => onNavigate('enis-a-travers-moi')}
+          onClick={() => onNavigate('eneis-yeux')}
         >
           <span className="menu-btn-icon">💖</span>
-          <span className="menu-btn-text">Enis à travers moi</span>
+          <span className="menu-btn-text">A mes yeux</span>
         </button>
         <button
           className="menu-btn menu-btn-4"
