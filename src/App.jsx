@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   // MODE DEV: Mettre à true pour tester directement la page d'anniversaire
-  const DEV_MODE = false;
+  const DEV_MODE = true;
 
   const [showBirthday, setShowBirthday] = useState(DEV_MODE);
 

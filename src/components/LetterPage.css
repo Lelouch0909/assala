@@ -94,6 +94,7 @@
   animation: slideInEnvelope 1s ease-out;
   z-index: 100;
   filter: drop-shadow(0 15px 35px rgba(216, 27, 96, 0.4));
+  isolation: isolate;
 }
 @keyframes slideInEnvelope {
   0% {
@@ -108,68 +109,65 @@
 .envelope-body {
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 160px;
-  background: linear-gradient(135deg, #c2185b 0%, #ff7abf 40%, #ffb2d7 100%);
-  border-radius: 0 0 18px 18px;
-  border: 3px solid rgba(255, 255, 255, 0.35);
-  box-shadow: inset 0 8px 25px rgba(0, 0, 0, 0.2);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  height: 170px;
+  background: linear-gradient(180deg, #ffe6f2 0%, #ffbad9 55%, #ff82b9 100%);
+  border-radius: 20px 20px 26px 26px;
+  border: 3px solid rgba(255, 255, 255, 0.65);
+  box-shadow: inset 0 12px 28px rgba(0, 0, 0, 0.18);
   overflow: hidden;
   z-index: 1;
 }
-.envelope-body::before {
-  content: '';
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 85%;
-  height: 55%;
-  border-radius: 0 0 18px 18px;
-  border: 2px solid rgba(255, 255, 255, 0.35);
-  opacity: 0.6;
-}
+.envelope-body::before,
 .envelope-body::after {
   content: '';
   position: absolute;
-  top: -2px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 220px;
-  height: 220px;
-  border: 2px solid rgba(255, 255, 255, 0.25);
-  border-top: none;
-  border-left: none;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 90%);
+  opacity: 0.95;
+}
+.envelope-body::before {
+  clip-path: polygon(0 0, 50% 100%, 0 100%);
+  box-shadow: 5px 0 12px rgba(255, 255, 255, 0.2);
+}
+.envelope-body::after {
+  clip-path: polygon(100% 0, 100% 100%, 50% 100%);
+  box-shadow: -5px 0 12px rgba(255, 255, 255, 0.2);
 }
 .envelope-top {
   position: absolute;
-  bottom: 160px;
-  left: 0;
-  width: 100%;
-  height: 0;
-  border-left: calc(50% - 5px) solid transparent;
-  border-right: calc(50% - 5px) solid transparent;
-  border-bottom: 130px solid #b3124b;
-  z-index: 2;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 96%;
+  height: 135px;
+  background: linear-gradient(180deg, #fff5f9 0%, #ffd8ea 80%);
+  clip-path: polygon(0 0, 100% 0, 50% 85%);
+  border-radius: 18px 18px 0 0;
+  box-shadow: inset 0 -18px 30px rgba(0, 0, 0, 0.08);
+  z-index: 0;
 }
 .envelope-flap {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
-  height: 0;
-  border-left: calc(50% - 5px) solid transparent;
-  border-right: calc(50% - 5px) solid transparent;
-  border-top: 140px solid #ff8ec9;
+  height: 170px;
+  background: linear-gradient(135deg, #ffd2e7 0%, #ff9ec8 45%, #ff6ba7 100%);
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  border-radius: 24px 24px 0 0;
+  border: 3px solid rgba(255, 255, 255, 0.8);
   transform-origin: top center;
   transition: all 1s ease;
   z-index: 3;
-  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.15));
+  box-shadow: 0 14px 25px rgba(0, 0, 0, 0.15);
 }
 .envelope.open .envelope-flap {
   transform: rotateX(180deg);
-  border-top-color: #ffa8d5;
+  background: linear-gradient(135deg, #ffe3f3 0%, #ffc1de 45%, #ff8fbe 100%);
 }
 .wax-seal {
   position: absolute;
@@ -339,33 +337,32 @@
     z-index: 200;
   }
   .envelope {
-    width: 85%;
-    max-width: 320px;
-    height: 140px;
+    width: 95%;
+    max-width: 340px;
+    height: 210px;
   }
   .envelope-body {
-    height: 80px;
+    width: 96%;
+    height: 140px;
   }
   .envelope-top {
-    bottom: 80px;
-    border-left: 42.5% solid transparent;
-    border-right: 42.5% solid transparent;
-    border-bottom: 70px solid #c2185b;
+    width: 96%;
+    bottom: 130px;
+    height: 110px;
   }
   .envelope-flap {
-    border-left: 42.5% solid transparent;
-    border-right: 42.5% solid transparent;
-    border-top: 70px solid #ff6eb4;
+    height: 150px;
+    top: -6px;
   }
   .letter-paper {
-    width: 65%;
-    max-width: 210px;
-    padding: 1.5rem 1rem 1rem;
-    bottom: 35px;
+    width: 78%;
+    max-width: 260px;
+    padding: 1.8rem 1.4rem 1.2rem;
+    bottom: 55px;
   }
   .letter-content {
-    font-size: 0.85rem;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    line-height: 1.7;
   }
   .letter-header {
     margin-bottom: 1.2rem;
@@ -386,7 +383,7 @@
     font-size: 1.2rem;
   }
   .scroll-indicator {
-    bottom: 155px;
+    bottom: 175px;
   }
   .scroll-text {
     font-size: 0.9rem;
@@ -410,33 +407,35 @@
 }
 @media screen and (max-width: 375px) {
   .envelope {
-    width: 85%;
-    height: 130px;
+    width: 95%;
+    height: 190px;
   }
   .envelope-body {
-    height: 75px;
+    width: 96%;
+    height: 125px;
   }
   .envelope-top {
-    bottom: 75px;
-    border-bottom: 65px solid #c2185b;
+    bottom: 118px;
+    height: 95px;
   }
   .envelope-flap {
-    border-top: 65px solid #ff6eb4;
+    height: 140px;
+    top: -4px;
   }
   .letter-paper {
-    width: 65%;
-    max-width: 200px;
-    bottom: 32px;
-    padding: 1.3rem 0.9rem 0.9rem;
+    width: 80%;
+    max-width: 230px;
+    bottom: 48px;
+    padding: 1.6rem 1.1rem 1rem;
   }
   .scroll-indicator {
-    bottom: 145px;
+    bottom: 155px;
   }
   .letter-content {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   .letter-salutation {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 }
 .letter-page::-webkit-scrollbar {
