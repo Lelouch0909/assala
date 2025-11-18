@@ -8,11 +8,13 @@
   overflow-y: auto;
   overflow-x: hidden;
   scroll-behavior: smooth;
+}
+
 /* Bouton retour */
 .qui-back-btn {
   position: fixed;
   top: 20px;
-  left: 15px;
+  left: 100px;
   background: rgba(255, 255, 255, 0.95);
   border: none;
   padding: 12px 24px;
@@ -44,14 +46,13 @@
   transform: translateX(-4px);
 }
 
-}
-
 /* Guirlande décorative verticale */
 .garland-container {
   position: fixed;
   top: 0;
-  padding: 100px 20px 60px 120px;
-  min-height: 200vh; /* Forcer le scroll avec du contenu */
+  bottom: 0;
+  left: 10px;
+  width: 80px;
   z-index: 100;
   pointer-events: none;
 }
@@ -144,9 +145,8 @@
 /* Ajuster le conteneur de contenu pour libérer la place à gauche */
 .qui-content-container {
   max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px 60px;
-  /* décale légèrement pour que la guirlande semble passer devant */
+  padding: 100px 20px 60px 120px;
+  min-height: 200vh;
   padding-left: 100px;
 }
 
@@ -588,7 +588,7 @@
 /* Responsive */
 @media (max-width: 768px) {
   .qui-back-btn {
-    top: 90px;
+    top: 40px;
     left: 15px;
     padding: 10px 20px;
     font-size: 14px;

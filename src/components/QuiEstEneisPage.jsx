@@ -14,6 +14,7 @@ const QuiEstEneisPage = ({ onBack }) => {
   const [visibleItems, setVisibleItems] = useState(new Set());
   const [particles] = useState(createParticles);
   const observerRef = useRef(null);
+  const videoRefs = useRef({});
 
   // Contenu de la page avec photos, vidéos et textes
   const content = [
@@ -89,14 +90,31 @@ const QuiEstEneisPage = ({ onBack }) => {
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          const index = parseInt(entry.target.dataset.index);
+          
           if (entry.isIntersecting) {
-            const index = parseInt(entry.target.dataset.index);
             setVisibleItems((prev) => new Set([...prev, index]));
+
+            // Lancer la vidéo si visible à 80%
+            if (entry.intersectionRatio >= 0.8) {
+              const videoElement = videoRefs.current[index];
+              if (videoElement) {
+                videoElement.play().catch(err => {
+                  console.log('Autoplay empêché:', err);
+                });
+              }
+            }
+          } else {
+            // Mettre en pause quand la vidéo sort du viewport
+            const videoElement = videoRefs.current[index];
+            if (videoElement) {
+              videoElement.pause();
+            }
           }
         });
       },
       {
-        threshold: 0.2,
+        threshold: [0.2, 0.8],
         rootMargin: '0px'
       }
     );
@@ -122,7 +140,8 @@ const QuiEstEneisPage = ({ onBack }) => {
             className="garland-light"
             style={{ top: `${(i / 19) * 100}%` }}
           >
-            <div className="light-glow"></div>
+            <div className="light-bulb" />
+            <div className="light-glow" />
           </div>
         ))}
       </div>
@@ -173,7 +192,12 @@ const QuiEstEneisPage = ({ onBack }) => {
             {item.type === 'video' && (
               <div className="video-card">
                 <div className="video-wrapper">
-                  <video controls loop>
+                  <video
+                    ref={(el) => { if (el) videoRefs.current[index] = el; }}
+                    loop
+                    muted
+                    playsInline
+                  >
                     <source src={item.src} type="video/mp4" />
                     Votre navigateur ne supporte pas la vidéo.
                   </video>
