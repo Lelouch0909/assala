@@ -16,7 +16,7 @@ const QuiEstEneisPage = ({ onBack }) => {
   const observerRef = useRef(null);
   const videoRefs = useRef({});
 
-  // Contenu de la page avec photos, vidéos et textes
+
   const content = [
     {
       type: 'text',
@@ -25,58 +25,64 @@ const QuiEstEneisPage = ({ onBack }) => {
     },
     {
       type: 'text',
-      content: 'Une personne extraordinaire qui illumine chaque jour...',
-      animation: 'fadeInUp'
-    },
-    {
-      type: 'image',
-      src: '/content/IMG-20251110-WA0025.jpg',
-      caption: 'Un moment inoubliable',
-      animation: 'flipCard'
-    },
-    {
-      type: 'text',
-      content: 'Des moments précieux qui resteront gravés dans nos cœurs...',
-      animation: 'slideInLeft'
-    },
-    {
-      type: 'video',
-      src: '/content/VID-20251116-WA0026.mp4',
-      caption: 'Des souvenirs en mouvement',
-      animation: 'zoomIn'
-    },
-    {
-      type: 'text',
-      content: 'Chaque sourire, chaque rire, chaque instant partagé...',
-      animation: 'slideInRight'
-    },
-    {
-      type: 'image',
-      src: '/content/IMG-20251116-WA0024.jpg',
-      caption: 'Toujours radieuse',
-      animation: 'flipCard'
-    },
-    {
-      type: 'video',
-      src: '/content/VID-20251110-WA0028.mp4',
-      caption: 'Des moments de joie',
-      animation: 'rotateIn'
-    },
-    {
-      type: 'text',
-      content: 'Une personnalité unique, une présence magique...',
+      content: 'Une présence qui attire, un regard qui captive…',
       animation: 'fadeInUp'
     },
     {
       type: 'image',
       src: '/content/IMG-20251116-WA0025.jpg',
-      caption: 'Simplement toi',
+      caption: 'Le charisme naturel',
+      animation: 'flipCard'
+    },
+      {
+      type: 'video',
+            src: '/content/vid3.mp4',
+            caption: '',
+            animation: 'flipCard'
+    },
+    {
+      type: 'text',
+      content: 'Dans son univers, elle brille sans forcer',
+      animation: 'slideInLeft'
+    },
+    {
+      type: 'video',
+      src: '/content/VID-20251006-WA0031.mp4',
+      caption: 'La joie qui illumine',
+      animation: 'zoomIn'
+    },
+    {
+      type: 'text',
+      content: 'Chaque sourire, chaque éclat de rire, est un moment précieux.',
+      animation: 'slideInRight'
+    },
+    {
+      type: 'image',
+      src: '/content/IMG-20251116-WA0024.jpg',
+      caption: 'Rayonnante jour après jour',
       animation: 'flipCard'
     },
     {
       type: 'video',
-      src: '/content/VID-20251116-WA0027.mp4',
-      caption: 'Ces instants précieux',
+      src: '/content/vid2.mp4',
+      caption: 'Des instants de pure légèreté',
+      animation: 'rotateIn'
+    },
+    {
+      type: 'text',
+      content: 'Une personnalité rare, une énergie qui marque les cœurs...',
+      animation: 'fadeInUp'
+    },
+    {
+      type: 'image',
+      src: '/content/IMG-20251110-WA0025.jpg',
+      caption: 'Juste toi, vraie et belle',
+      animation: 'flipCard'
+    },
+    {
+      type: 'video',
+      src: '/content/pain.mp4',
+      caption: 'Tu sais que t es un pain ?',
       animation: 'zoomIn'
     },
     {

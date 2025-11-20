@@ -1,0 +1,789 @@
+.qui-est-eneis-page {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Bouton retour */
+.qui-back-btn {
+  position: fixed;
+  top: 20px;
+  left: 100px;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #764ba2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.qui-back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 1);
+}
+
+.back-arrow {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.qui-back-btn:hover .back-arrow {
+  transform: translateX(-4px);
+}
+
+/* Guirlande décorative verticale */
+.garland-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 15px;
+  width: 80px;
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 0.1s ease-out;
+}
+
+.garland-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.18) 0 8px,
+    rgba(255, 255, 255, 0.28) 8px 16px
+  );
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+.garland-line::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0.35)
+  );
+}
+
+.garland-light {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+/* Balancement indépendant de chaque ampoule (vent) */
+.garland-light:nth-child(1) { animation: swing1 2.3s ease-in-out infinite; }
+.garland-light:nth-child(2) { animation: swing2 3.1s ease-in-out infinite; }
+.garland-light:nth-child(3) { animation: swing3 2.7s ease-in-out infinite; }
+.garland-light:nth-child(4) { animation: swing1 3.5s ease-in-out infinite 0.3s; }
+.garland-light:nth-child(5) { animation: swing2 2.9s ease-in-out infinite 0.6s; }
+.garland-light:nth-child(6) { animation: swing3 3.3s ease-in-out infinite 0.2s; }
+.garland-light:nth-child(7) { animation: swing1 2.5s ease-in-out infinite 0.8s; }
+.garland-light:nth-child(8) { animation: swing2 3.2s ease-in-out infinite 0.4s; }
+.garland-light:nth-child(9) { animation: swing3 2.8s ease-in-out infinite 0.7s; }
+.garland-light:nth-child(10) { animation: swing1 3.4s ease-in-out infinite 0.1s; }
+.garland-light:nth-child(11) { animation: swing2 2.6s ease-in-out infinite 0.9s; }
+.garland-light:nth-child(12) { animation: swing3 3.0s ease-in-out infinite 0.5s; }
+.garland-light:nth-child(13) { animation: swing1 2.4s ease-in-out infinite 0.3s; }
+.garland-light:nth-child(14) { animation: swing2 3.3s ease-in-out infinite 0.6s; }
+.garland-light:nth-child(15) { animation: swing3 2.9s ease-in-out infinite 0.2s; }
+.garland-light:nth-child(16) { animation: swing1 3.1s ease-in-out infinite 0.8s; }
+.garland-light:nth-child(17) { animation: swing2 2.7s ease-in-out infinite 0.4s; }
+.garland-light:nth-child(18) { animation: swing3 3.2s ease-in-out infinite 0.7s; }
+.garland-light:nth-child(19) { animation: swing1 2.8s ease-in-out infinite 0.1s; }
+.garland-light:nth-child(20) { animation: swing2 3.0s ease-in-out infinite 0.5s; }
+
+/* Câble qui relie l'ampoule au fil (mouvement indépendant) */
+.garland-light::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  transform-origin: top center;
+}
+
+.garland-light:nth-child(1)::before { animation: cableSwing1 2.1s ease-in-out infinite 0.1s; }
+.garland-light:nth-child(2)::before { animation: cableSwing2 2.8s ease-in-out infinite 0.4s; }
+.garland-light:nth-child(3)::before { animation: cableSwing1 2.4s ease-in-out infinite 0.7s; }
+.garland-light:nth-child(4)::before { animation: cableSwing2 3.1s ease-in-out infinite 0.2s; }
+.garland-light:nth-child(5)::before { animation: cableSwing1 2.6s ease-in-out infinite 0.9s; }
+.garland-light:nth-child(6)::before { animation: cableSwing2 2.9s ease-in-out infinite 0.3s; }
+.garland-light:nth-child(7)::before { animation: cableSwing1 2.3s ease-in-out infinite 0.6s; }
+.garland-light:nth-child(8)::before { animation: cableSwing2 3.0s ease-in-out infinite 0.5s; }
+.garland-light:nth-child(9)::before { animation: cableSwing1 2.7s ease-in-out infinite 0.8s; }
+.garland-light:nth-child(10)::before { animation: cableSwing2 2.5s ease-in-out infinite 0.2s; }
+.garland-light:nth-child(11)::before { animation: cableSwing1 2.9s ease-in-out infinite 0.4s; }
+.garland-light:nth-child(12)::before { animation: cableSwing2 2.2s ease-in-out infinite 0.7s; }
+.garland-light:nth-child(13)::before { animation: cableSwing1 3.2s ease-in-out infinite 0.1s; }
+.garland-light:nth-child(14)::before { animation: cableSwing2 2.6s ease-in-out infinite 0.6s; }
+.garland-light:nth-child(15)::before { animation: cableSwing1 2.8s ease-in-out infinite 0.3s; }
+.garland-light:nth-child(16)::before { animation: cableSwing2 2.4s ease-in-out infinite 0.8s; }
+.garland-light:nth-child(17)::before { animation: cableSwing1 3.0s ease-in-out infinite 0.5s; }
+.garland-light:nth-child(18)::before { animation: cableSwing2 2.7s ease-in-out infinite 0.2s; }
+.garland-light:nth-child(19)::before { animation: cableSwing1 2.5s ease-in-out infinite 0.9s; }
+.garland-light:nth-child(20)::before { animation: cableSwing2 2.3s ease-in-out infinite 0.4s; }
+
+.light-bulb {
+  width: 14px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: linear-gradient(135deg, rgba(255, 107, 157, 0.65), rgba(164, 155, 245, 0.65));
+  box-shadow:
+    0 0 12px currentColor,
+    inset 1px 1px 3px rgba(255, 255, 255, 0.5),
+    inset -1px -1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.light-bulb::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 0 0 2px 2px;
+}
+
+.light-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.2) 45%, transparent 70%);
+  filter: blur(6px);
+}
+
+/* Variations de pulse aléatoires pour chaque ampoule */
+.garland-light:nth-child(1) .light-glow { animation: pulse1 2.1s ease-in-out infinite 0s; }
+.garland-light:nth-child(2) .light-glow { animation: pulse2 2.4s ease-in-out infinite 0.3s; }
+.garland-light:nth-child(3) .light-glow { animation: pulse3 1.9s ease-in-out infinite 0.6s; }
+.garland-light:nth-child(4) .light-glow { animation: pulse1 2.3s ease-in-out infinite 0.2s; }
+.garland-light:nth-child(5) .light-glow { animation: pulse2 2.0s ease-in-out infinite 0.8s; }
+.garland-light:nth-child(6) .light-glow { animation: pulse3 2.2s ease-in-out infinite 0.4s; }
+.garland-light:nth-child(7) .light-glow { animation: pulse1 1.8s ease-in-out infinite 0.7s; }
+.garland-light:nth-child(8) .light-glow { animation: pulse2 2.5s ease-in-out infinite 0.1s; }
+.garland-light:nth-child(9) .light-glow { animation: pulse3 2.1s ease-in-out infinite 0.5s; }
+.garland-light:nth-child(10) .light-glow { animation: pulse1 2.3s ease-in-out infinite 0.9s; }
+.garland-light:nth-child(11) .light-glow { animation: pulse2 1.9s ease-in-out infinite 0.3s; }
+.garland-light:nth-child(12) .light-glow { animation: pulse3 2.4s ease-in-out infinite 0.6s; }
+.garland-light:nth-child(13) .light-glow { animation: pulse1 2.2s ease-in-out infinite 0.2s; }
+.garland-light:nth-child(14) .light-glow { animation: pulse2 2.0s ease-in-out infinite 0.8s; }
+.garland-light:nth-child(15) .light-glow { animation: pulse3 2.3s ease-in-out infinite 0.4s; }
+.garland-light:nth-child(16) .light-glow { animation: pulse1 2.1s ease-in-out infinite 0.7s; }
+.garland-light:nth-child(17) .light-glow { animation: pulse2 2.5s ease-in-out infinite 0.1s; }
+.garland-light:nth-child(18) .light-glow { animation: pulse3 1.8s ease-in-out infinite 0.5s; }
+.garland-light:nth-child(19) .light-glow { animation: pulse1 2.4s ease-in-out infinite 0.9s; }
+.garland-light:nth-child(20) .light-glow { animation: pulse2 2.2s ease-in-out infinite 0.3s; }
+
+/* variantes de couleur (thème violet/rose/mauve) */
+.garland-light:nth-child(3n+1) .light-bulb {
+  color: rgba(255, 107, 157, 0.95);
+  background: linear-gradient(135deg, rgba(255, 107, 157, 0.7), rgba(255, 143, 171, 0.7));
+}
+
+.garland-light:nth-child(3n+2) .light-bulb {
+  color: rgba(138, 126, 234, 0.95);
+  background: linear-gradient(135deg, rgba(138, 126, 234, 0.7), rgba(164, 155, 245, 0.7));
+}
+
+.garland-light:nth-child(3n+3) .light-bulb {
+  color: rgba(243, 147, 251, 0.95);
+  background: linear-gradient(135deg, rgba(243, 147, 251, 0.7), rgba(248, 177, 252, 0.7));
+}
+
+/* Animations de câble pour mouvement indépendant */
+@keyframes cableSwing1 {
+  0%, 100% { transform: translateX(-50%) rotate(-3deg); }
+  25% { transform: translateX(-50%) rotate(2deg); }
+  50% { transform: translateX(-50%) rotate(-2deg); }
+  75% { transform: translateX(-50%) rotate(3deg); }
+}
+
+@keyframes cableSwing2 {
+  0%, 100% { transform: translateX(-50%) rotate(3deg); }
+  30% { transform: translateX(-50%) rotate(-3deg); }
+  60% { transform: translateX(-50%) rotate(2deg); }
+  85% { transform: translateX(-50%) rotate(-2deg); }
+}
+
+/* Variations de swing pour effet de vent aléatoire - mouvement subtil mais visible */
+@keyframes swing1 {
+  0% { transform: translateX(-50%) rotate(-6deg); }
+  25% { transform: translateX(-50%) rotate(3deg); }
+  50% { transform: translateX(-50%) rotate(-3deg); }
+  75% { transform: translateX(-50%) rotate(5deg); }
+  100% { transform: translateX(-50%) rotate(-6deg); }
+}
+
+@keyframes swing2 {
+  0% { transform: translateX(-50%) rotate(5deg); }
+  30% { transform: translateX(-50%) rotate(-6deg); }
+  60% { transform: translateX(-50%) rotate(3deg); }
+  85% { transform: translateX(-50%) rotate(-3deg); }
+  100% { transform: translateX(-50%) rotate(5deg); }
+}
+
+@keyframes swing3 {
+  0% { transform: translateX(-50%) rotate(-3deg); }
+  20% { transform: translateX(-50%) rotate(6deg); }
+  45% { transform: translateX(-50%) rotate(-5deg); }
+  70% { transform: translateX(-50%) rotate(3deg); }
+  100% { transform: translateX(-50%) rotate(-3deg); }
+}
+
+/* Variations de pulse pour effet lumineux aléatoire */
+@keyframes pulse1 {
+  0%, 100% {
+    opacity: 0.25;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  50% {
+    opacity: 0.65;
+    transform: translate(-50%, -50%) scale(1.25);
+  }
+}
+
+@keyframes pulse2 {
+  0%, 100% {
+    opacity: 0.35;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  50% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(1.15);
+  }
+}
+
+@keyframes pulse3 {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  30% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+  70% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Ajuster le conteneur de contenu pour libérer la place à gauche */
+.qui-content-container {
+  max-width: 900px;
+  padding: 100px 20px 60px 120px;
+  min-height: 200vh;
+  padding-left: 100px;
+}
+
+/* Donner un peu de profondeur aux items pour accent 3D */
+.content-item {
+  margin-bottom: 80px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  z-index: 10;
+}
+
+.content-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animations pour les items */
+.content-item.fadeInUp.visible {
+  animation: fadeInUp 1s ease forwards;
+}
+
+.content-item.slideInLeft.visible {
+  animation: slideInLeft 1s ease forwards;
+}
+
+.content-item.slideInRight.visible {
+  animation: slideInRight 1s ease forwards;
+}
+
+.content-item.zoomIn.visible {
+  animation: zoomIn 1s ease forwards;
+}
+
+.content-item.rotateIn.visible {
+  animation: rotateIn 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* Texte */
+.text-content {
+  text-align: center;
+  padding: 30px;
+}
+
+.page-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff, #ffc3a0, #ff6b9d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 20px;
+  text-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+  animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(255, 107, 157, 0.8));
+  }
+}
+
+.text-paragraph {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: white;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px 40px;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Cartes images avec effet flip */
+.image-card {
+  perspective: 1000px;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.image-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card-front {
+  background: white;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-back {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-back-content {
+  text-align: center;
+  color: white;
+  padding: 30px;
+}
+
+.card-back-content p {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.heart-icon {
+  font-size: 3rem;
+  animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.item-caption {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: white;
+  font-weight: 600;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Cartes vidéo */
+.video-card {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.video-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease;
+}
+
+.video-wrapper:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.video-wrapper video {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+}
+
+/* Section de fin */
+.end-section {
+  text-align: center;
+  padding: 60px 20px;
+  margin-top: 40px;
+}
+
+.heart-burst {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 30px;
+}
+
+.burst-heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 2rem;
+  animation: burstOut 2s ease-out infinite;
+}
+
+.burst-heart:nth-child(1) { animation-delay: 0s; }
+.burst-heart:nth-child(2) { animation-delay: 0.15s; }
+.burst-heart:nth-child(3) { animation-delay: 0.3s; }
+.burst-heart:nth-child(4) { animation-delay: 0.45s; }
+.burst-heart:nth-child(5) { animation-delay: 0.6s; }
+.burst-heart:nth-child(6) { animation-delay: 0.75s; }
+.burst-heart:nth-child(7) { animation-delay: 0.9s; }
+.burst-heart:nth-child(8) { animation-delay: 1.05s; }
+
+@keyframes burstOut {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(80px, -80px) scale(1.5) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.burst-heart:nth-child(2) {
+  animation-name: burstOut2;
+}
+@keyframes burstOut2 {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(80px, 0px) scale(1.5) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.burst-heart:nth-child(3) {
+  animation-name: burstOut3;
+}
+@keyframes burstOut3 {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(80px, 80px) scale(1.5) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.burst-heart:nth-child(4) {
+  animation-name: burstOut4;
+}
+@keyframes burstOut4 {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(0px, 80px) scale(1.5) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.burst-heart:nth-child(5) {
+  animation-name: burstOut5;
+}
+@keyframes burstOut5 {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(-80px, 80px) scale(1.5) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.burst-heart:nth-child(6) {
+  animation-name: burstOut6;
+}
+@keyframes burstOut6 {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(-80px, 0px) scale(1.5) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.burst-heart:nth-child(7) {
+  animation-name: burstOut7;
+}
+@keyframes burstOut7 {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(-80px, -80px) scale(1.5) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.burst-heart:nth-child(8) {
+  animation-name: burstOut8;
+}
+@keyframes burstOut8 {
+  0% {
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(0px, -80px) scale(1.5) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.end-text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeInScale 1s ease forwards;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Particules flottantes */
+.floating-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: float linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .qui-back-btn {
+    top: 40px;
+    left: 15px;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .qui-content-container {
+    padding: 100px 15px 40px;
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+  }
+
+  .text-paragraph {
+    font-size: 1.2rem;
+    padding: 20px 25px;
+  }
+
+  .card-inner {
+    height: 300px;
+  }
+
+  .garland-light {
+    display: none;
+  }
+
+  .garland-light:nth-child(3n) {
+    display: block;
+  }
+
+  .content-item {
+    margin-bottom: 50px;
+  }
+}

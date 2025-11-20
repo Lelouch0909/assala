@@ -12,39 +12,78 @@ const EneisYeuxPage = ({ onBack }) => {
 
   // Les slides avec images et textes
   const slides = [
-    {
-      image: '/content/IMG-20251110-WA0025.jpg',
-      text: 'Ton sourire illumine mes journées les plus sombres'
-    },
-    {
-      image: '/content/IMG-20251116-WA0024.jpg',
-      text: 'Ta beauté rayonne de l\'intérieur'
-    },
+
     {
       image: '/content/IMG-20251116-WA0025.jpg',
-      text: 'Chaque moment avec toi est précieux'
+      text: 'Chaque fois que j me dis te maitriser tu me prouves que non et me plais un peu plus'
     },
-    // Ajouter plus de slides selon les photos disponibles
+      {
+          image: '/content/IMG-20251116-WA0024.jpg',
+          text: 'Tu es tres narcissique et t es tres bonne personne continue de t aimer'
+      },
+    {
+      image: '/content/IMG-20251110-WA0025.jpg',
+      text: 'Ta timidite est adorable. Enfaite c est ce que je prefere chez toi'
+    },
+    {
+      image: '/content/im1.png',
+      text: 'On te le dit pas assez mais t es tres intelligente'
+    },
+      {
+          image: '/content/im2.png',
+          text: 'J te le dis tout le temps mais t es tellement plus belle ainsi'
+      },
+      {
+          image: '/content/Screenshot_20251120-203106.png',
+          text: 'T as une belle voix. J adore quand tu ris aux eclats'
+      },
+
+      {
+          image: '/content/IMG-20251116-WA0025.jpg',
+          text: 'T as un grand coeur assez pour supporter mes delires'
+      },
+      {
+          image: '/content/IMG-20251116-WA0025.jpg',
+          text: 'Tu peux leur dire que tant que ton mec sera la il aura toujours les plus belles attention pour toi a commencer par ton anniv 🙂‍↕️'
+      }
+
   ];
 
   const handlePinChange = (index, value) => {
-    if (value.length > 1) return;
-    if (!/^\d*$/.test(value)) return; // Seulement des chiffres
+    // On ne garde que le dernier chiffre tapé et uniquement des chiffres
+    const cleaned = value.replace(/\D/g, '');
+    if (cleaned.length === 0) {
+      const newPin = [...pinCode];
+      newPin[index] = '';
+      setPinCode(newPin);
+      setError(false);
+      return;
+    }
+
+    const digit = cleaned[cleaned.length - 1];
 
     const newPin = [...pinCode];
-    newPin[index] = value;
+    newPin[index] = digit;
     setPinCode(newPin);
     setError(false);
 
-    // Focus sur le prochain input
-    if (value && index < 3) {
+    // Focus sur le prochain input automatiquement
+    if (index < pinCode.length - 1) {
       inputRefs.current[index + 1]?.focus();
     }
   };
 
   const handleKeyDown = (index, e) => {
-    if (e.key === 'Backspace' && !pinCode[index] && index > 0) {
-      inputRefs.current[index - 1]?.focus();
+    if (e.key === 'Backspace') {
+      if (pinCode[index]) {
+        // Efface simplement la valeur actuelle
+        const newPin = [...pinCode];
+        newPin[index] = '';
+        setPinCode(newPin);
+      } else if (index > 0) {
+        // Reculer à la case précédente si déjà vide
+        inputRefs.current[index - 1]?.focus();
+      }
     }
   };
 
@@ -146,7 +185,7 @@ const EneisYeuxPage = ({ onBack }) => {
 
             <div className="pin-hint">
               <span className="hint-icon">💡</span>
-              <span>Indice : L'année de ta naissance</span>
+              <span>Tu aimerais bien le connaitre heun ?</span>
             </div>
           </div>
         </div>
