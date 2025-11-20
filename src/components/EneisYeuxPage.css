@@ -1,7 +1,7 @@
 /* Page principale */
 .eneis-yeux-page {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100lvh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   position: relative;
   overflow: hidden;
@@ -61,7 +61,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 100lvh;
   padding: 20px;
 }
 

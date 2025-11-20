@@ -3,8 +3,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100llvw;
+  height: 100llvh;
   background: linear-gradient(135deg, #ffeef8 0%, #ffc3e1 50%, #ff9ec7 100%);
   overflow-y: auto;
   overflow-x: hidden;
@@ -36,7 +36,7 @@
     transform: translateX(0) rotate(0deg);
   }
   100% {
-    bottom: 110vh;
+    bottom: 110llvh;
     transform: translateX(30px) rotate(360deg);
   }
 }
@@ -78,7 +78,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  min-height: 300vh;
+  min-height: 300llvh;
   padding: 6rem 2rem 0;
   z-index: 10;
 }
@@ -88,8 +88,9 @@
   left: 50%;
   transform: translateX(-50%);
   width: 460px;
-  max-width: 90vw;
-  height: 260px;
+  max-width: 90llvw;
+  height: 26llvh;
+  max-height: 260px;
   transition: all 1s ease;
   animation: slideInEnvelope 1s ease-out;
   z-index: 100;
@@ -112,7 +113,8 @@
   left: 50%;
   transform: translateX(-50%);
   width: 92%;
-  height: 170px;
+  height: 17llvh;
+  max-height: 170px;
   background: linear-gradient(180deg, #ffe6f2 0%, #ffbad9 55%, #ff82b9 100%);
   border-radius: 20px 20px 26px 26px;
   border: 3px solid rgba(255, 255, 255, 0.65);
@@ -138,11 +140,12 @@
 }
 .envelope-top {
   position: absolute;
-  bottom: 150px;
+  bottom: 15llvh;
   left: 50%;
   transform: translateX(-50%);
   width: 96%;
-  height: 135px;
+  height: 13.5llvh;
+  max-height: 135px;
   background: linear-gradient(180deg, #fff5f9 0%, #ffd8ea 80%);
   clip-path: polygon(0 0, 100% 0, 50% 85%);
   border-radius: 18px 18px 0 0;
@@ -156,7 +159,8 @@
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  height: 170px;
+  height: 17llvh;
+  max-height: 170px;
   background: linear-gradient(135deg, #ffd2e7 0%, #ff9ec8 45%, #ff6ba7 100%);
   clip-path: polygon(0 0, 50% 100%, 100% 0);
   border-radius: 24px 24px 0 0;
@@ -203,10 +207,10 @@
 }
 .letter-paper {
   position: fixed;
-  bottom: 80px;
+  bottom: 8llvh;
   left: 50%;
   transform: translateX(-50%) translateY(100%);
-  width: 340px;
+  width: 85llvw;
   max-width: 360px;
   background: #fffef7;
   border-radius: 14px 14px 0 0;
@@ -221,7 +225,7 @@
   background-image:
     linear-gradient(rgba(255, 182, 193, 0.08) 1px, transparent 1px);
   background-size: 100% 28px;
-  max-height: calc(100vh - 140px);
+  max-height: calc(100llvh - 14llvh);
   overflow-y: auto;
 }
 .letter-paper.visible {
@@ -292,7 +296,7 @@
 }
 .scroll-indicator {
   position: fixed;
-  bottom: 240px;
+  bottom: 24llvh;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -339,27 +343,31 @@
   }
   .envelope {
     width: 95%;
-    max-width: 340px;
-    height: 210px;
+    max-width: 90llvw;
+    height: 21llvh;
+    max-height: 210px;
   }
   .envelope-body {
     width: 96%;
-    height: 140px;
+    height: 14llvh;
+    max-height: 140px;
   }
   .envelope-top {
     width: 96%;
-    bottom: 130px;
-    height: 110px;
+    bottom: 13llvh;
+    height: 11llvh;
+    max-height: 110px;
   }
   .envelope-flap {
-    height: 150px;
+    height: 15llvh;
+    max-height: 150px;
     top: -6px;
   }
   .letter-paper {
-    width: 78%;
+    width: 85llvw;
     max-width: 260px;
     padding: 1.8rem 1.4rem 1.2rem;
-    bottom: 55px;
+    bottom: 5.5llvh;
   }
   .letter-content {
     font-size: 0.95rem;
@@ -458,8 +466,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100lvw;
+  height: 100lvh;
   background: rgba(255, 105, 180, 0.95);
   backdrop-filter: blur(10px);
   display: flex;

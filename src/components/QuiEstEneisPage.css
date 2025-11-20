@@ -1,6 +1,6 @@
 .qui-est-eneis-page {
-  width: 100vw;
-  height: 100vh;
+  width: 100lvw;
+  height: 100lvh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   position: fixed;
   top: 0;
@@ -310,7 +310,7 @@
 .qui-content-container {
   max-width: 900px;
   padding: 100px 20px 60px 120px;
-  min-height: 200vh;
+  min-height: 200lvh;
   padding-left: 100px;
 }
 
@@ -734,7 +734,7 @@
 
 @keyframes float {
   0% {
-    transform: translateY(100vh) rotate(0deg);
+    transform: translateY(100lvh) rotate(0deg);
     opacity: 0;
   }
   10% {

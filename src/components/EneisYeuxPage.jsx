@@ -19,7 +19,7 @@ const EneisYeuxPage = ({ onBack }) => {
     },
       {
           image: '/content/IMG-20251116-WA0024.jpg',
-          text: 'Tu es tres narcissique et t es tres bonne personne continue de t aimer'
+          text: 'Tu es tres narcissique et t es une tres bonne personne continue de t aimer'
       },
     {
       image: '/content/IMG-20251110-WA0025.jpg',

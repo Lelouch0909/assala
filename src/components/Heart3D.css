@@ -21,13 +21,13 @@
 
 .heart3d-title {
   position: absolute;
-  top: 8vh;
+  top: 8lvh;
   left: 2rem;
   right: 2rem;
   text-align: center;
   font-family: 'Parisienne', cursive;
   font-weight: 400;
-  font-size: max(2.5rem, 5vh);
+  font-size: max(2.5rem, 5lvh);
   color: #ffccff;
   text-shadow: 0 0 10px rgba(255, 153, 204, 0.7);
   opacity: 0;

@@ -4,8 +4,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100lvw;
+  height: 100lvh;
   background: linear-gradient(135deg, #ffeef8 0%, #ffc3e1 50%, #ff9ec7 100%);
   overflow-y: auto;
   animation: fadeIn 0.5s ease-out;
@@ -50,7 +50,7 @@
     transform: translateX(0) rotate(0deg);
   }
   100% {
-    bottom: 110vh;
+    bottom: 110lvh;
     transform: translateX(30px) rotate(360deg);
   }
 }
@@ -61,7 +61,7 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem 1.5rem;
-  min-height: 100vh;
+  min-height: 100lvh;
 }
 
 .content-back-btn {
@@ -144,7 +144,7 @@
 
 .content-title {
   font-family: 'Great Vibes', cursive;
-  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-size: clamp(2.5rem, 8lvw, 4rem);
   color: #d81b60;
   text-shadow: 0 4px 20px rgba(216, 27, 96, 0.3);
   margin: 0;
@@ -179,14 +179,14 @@
 
 .content-subtitle {
   font-family: 'Dancing Script', cursive;
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-size: clamp(1.5rem, 5lvw, 2.5rem);
   color: #880e4f;
   margin-bottom: 1rem;
 }
 
 .content-text {
   font-family: 'Dancing Script', cursive;
-  font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+  font-size: clamp(1.1rem, 3.5lvw, 1.5rem);
   color: #424242;
   line-height: 1.8;
   margin: 0.5rem 0;
